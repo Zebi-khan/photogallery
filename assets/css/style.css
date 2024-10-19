@@ -1,0 +1,126 @@
+img {
+  max-height: 100%;
+}
+
+/* Header */
+header {
+  background: #f8f9fa;
+  box-shadow: 0 3px 10px 0 rgb(0 0 0 / 50%);
+}
+
+header .custom-link {
+  color: blue;
+}
+
+header .custom-btn {
+  color: white;
+  background-color: tomato;
+}
+
+header .custom-nav a:hover {
+  color: blue;
+}
+
+/* Slider */
+.slider .custom-s {
+  right: 77px;
+  border-radius: 17px;
+  background-color: orangered;
+}
+
+.slider .custom-spn {
+  left: 78px;
+  border-radius: 17px;
+  background-color: orangered;
+}
+
+.slider img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* About */
+.about h2 {
+  color: royalblue;
+}
+
+/* Album */
+.album .custom-s {
+  right: 77px;
+  border-radius: 17px;
+  background-color: orangered;
+}
+
+.album .custom-spn {
+  left: 78px;
+  border-radius: 17px;
+  background-color: orangered;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.nav-link img {
+  margin-right: 0.5rem;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Filter */
+.filter .active {
+  background-color: yellowgreen;
+}
+.filter a:hover {
+  background-color: yellowgreen;
+  width: auto;
+  padding: 5px 15px;
+}
+.filter .custom-button a {
+  margin-right: 5px;
+  border-radius: 20px;
+  border: yellowgreen;
+  padding: 5px 15px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+.equal-height {
+  height: 150px;
+  object-fit: cover;
+  width: 700px;
+}
+.gallery .equal-height {
+  height: 270px;
+  object-fit: cover;
+  width: 700px;
+}
+
+/* Footer */
+.custom-footer {
+  background-color: lightgray;
+}
