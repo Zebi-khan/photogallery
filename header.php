@@ -41,7 +41,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'user') {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
 
   <script>
     function generateSlug() {
@@ -72,16 +72,16 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'user') {
                     <a class="nav-link custom-link me-4" href="/">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="#">About</a>
+                    <a class="nav-link me-4" href="/about.php">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="/user/album/albums.php">Albums</a>
+                    <a class="nav-link me-4" href="/albums.php">Albums</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="/user/image/gallery.php">Gallery</a>
+                    <a class="nav-link me-4" href="/gallery.php">Gallery</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-5" href="#">Contact Us</a>
+                    <a class="nav-link me-5" href="/contact.php">Contact Us</a>
                   </li>
 
                   <?php if (isset($_SESSION['user_id'])): ?>

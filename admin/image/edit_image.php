@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Handle the image upload
   $image_name = $image['image']; // Use the existing image as default
   if (!empty($_FILES['image']['name'])) {
-    $target_dir = "../../uploaded_images/";
+    $target_dir = "../../uploads/";
     $target_file = $target_dir . basename($_FILES['image']['name']);
     if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
       $image_name = $_FILES['image']['name']; // Update with the new image
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
               </div>
               <div class="col-6">
-                <p>Current Image: <img src="../../uploaded_images/<?= htmlspecialchars($image['image']); ?>" class="img-fluid" style="max-width: 100px; margin-top:20px"></p>
+                <p>Current Image: <img src="../../uploads/<?= htmlspecialchars($image['image']); ?>" class="img-fluid" style="max-width: 100px; margin-top:20px"></p>
               </div>
             </div>
             <div class="card-footer text-center">

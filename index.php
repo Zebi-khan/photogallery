@@ -61,39 +61,40 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-4 col-4 mb-3">
               <img src="/assets/images/1.png" height="324" width="410" alt="image">
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-4 col-4 mb-3">
               <img src="/assets/images/A2.png" height="324" width="410" alt="image">
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-4 col-4 mb-3">
               <img src="/assets/images/A3.png" height="324" width="410" alt="image">
             </div>
           </div>
         </div>
+
         <div class="carousel-item">
           <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-4 col-4 mb-3">
               <img src="/assets/images/A4.png" height="324" width="410" alt="image">
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-4 col-4 mb-3">
               <img src="/assets/images/A5.png" height="324" width="410" alt="image">
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-4 col-4 mb-3">
               <img src="/assets/images/A6.png" height="324" width="410" alt="image">
             </div>
           </div>
         </div>
         <div class="carousel-item">
           <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-4 col-4 mb-3">
               <img src="/assets/images/A7.png" height="324" width="410" alt="image">
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-4 col-4 mb-3">
               <img src="/assets/images/A8.png" height="324" width="410" alt="image">
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-4 col-4 mb-3">
               <img src="/assets/images/A9.png" height="324" width="410" alt="image">
             </div>
           </div>
@@ -180,21 +181,21 @@
         <div class="col-lg-4 mt-5">
           <div class="email d-flex align-items-center me-4 py-3">
             <i class="me-2">
-              <img src="assets/images/mail" alt="Email" width="32">
+              <img src="assets/images/mail2.png" alt="Email" width="32">
             </i>
             <a href="email:photogallery@gmail.com" class="text-decoration-none text-dark">photogallery@gmail.com</a>
           </div>
           <div class="phone d-flex align-items-center me-4 py-3">
             <i class="me-2">
-              <img src="assets/images/call.png" alt="Phone No" width="32">
+              <img src="assets/images/call2.png" alt="Phone No" width="32">
             </i>
             <a href="tel:+92(123) 456-7890" class="text-decoration-none text-dark">+92(123) 456-7890</a>
           </div>
           <div class="address d-flex align-items-center me-4 py-2">
             <i class="me-2">
-              <img src="assets/images/map.png" alt="Location" width="32">
+              <img src="assets/images/location.png" alt="Location" width="32">
             </i>
-            <p class="m-0">111 high street Sahiwal</p>
+            <p class="m-0">111 Karbala road Sahiwal</p>
           </div>
         </div>
         <div class="col-lg-4 mt-5">
@@ -221,30 +222,30 @@
   <?php require_once 'footer.php'; ?>
 
   <!-- JavaScript -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('[data-category]');
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('[data-category]');
 
-    filterButtons.forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.preventDefault();
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
 
-        // Remove active class from all buttons
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        this.classList.add('active');
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
 
-        const filterValue = this.getAttribute('data-filter');
+          const filterValue = this.getAttribute('data-filter');
 
-        // Show or hide images based on the selected filter
-        galleryItems.forEach(item => {
-          if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
+          // Show or hide images based on the selected filter
+          galleryItems.forEach(item => {
+            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
         });
       });
     });
-  });
-</script>
+  </script>

@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
     
     <div class="row">
         <div class="col-12 text-center">
-            <img src="../../uploaded_images/<?= htmlspecialchars($image['image']); ?>" class="img-fluid" style="max-height: 300px; object-fit: cover;">
+            <img src="../../uploads/<?= htmlspecialchars($image['image']); ?>" class="img-fluid" style="max-height: 300px; object-fit: cover;">
             <div class="mt-3">
                 <p><strong>Created At:</strong> <?= date('Y-m-d', strtotime($image['created_at'])); ?></p>
             </div>

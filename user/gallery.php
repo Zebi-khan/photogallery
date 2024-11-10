@@ -44,7 +44,7 @@ if (!$result) {
           $image = htmlspecialchars($row['image']);
           echo "
               <div class='col-3 mb-4'>
-                  <img src='../uploaded_images/{$image}' class='img-fluid equal-height'>
+                  <img src='../uploads/{$image}' class='img-fluid equal-height'>
               </div>";
         }
       } else {

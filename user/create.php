@@ -54,7 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $file_tmp = $_FILES['thumbnail']['tmp_name'];
       $file_name = basename($_FILES['thumbnail']['name']);
       $upload_dir = '../uploads/'; // Set the correct path to the uploads directory
-      $upload_file = $upload_dir . $file_name;
+
+      // Create unique file name by appending timestamp to the original file name
+      $file_extension = pathinfo($file_name, PATHINFO_EXTENSION);
+      $unique_file_name = uniqid('album_') . '.' . $file_extension;
+      $upload_file = $upload_dir . $unique_file_name;
 
       // Check file size
       $file_size = $_FILES['thumbnail']['size'];
@@ -62,8 +66,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if ($file_size > $max_file_size) {
         $errors[] = "File size exceeds the maximum limit of 20 MB.";
       } else {
+        // Move the uploaded file to the desired directory
         if (move_uploaded_file($file_tmp, $upload_file)) {
-          $thumbnail = $file_name; // Set the thumbnail to the file name after successful upload
+          $thumbnail = $unique_file_name; // Set the thumbnail to the unique file name after successful upload
+          $original_thumbnail = $file_name; // Store the original file name
         } else {
           $errors[] = "Sorry, there was an error uploading your file.";
         }
@@ -112,8 +118,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $created_at = date('Y-m-d H:i:s');
     $updated_at = $created_at;
 
-    $sql = "INSERT INTO albums (user_id, name, slug, thumbnail, status, access_type, created_at, updated_at, description) 
-            VALUES ('$user_id', '$name', '$slug', '$thumbnail', '$status', '$access_type', '$created_at', '$updated_at', '$description')";
+    $sql = "INSERT INTO albums (user_id, name, slug, thumbnail, original_thumbnail, status, access_type, created_at, updated_at, description) 
+            VALUES ('$user_id', '$name', '$slug', '$thumbnail', '$original_thumbnail', '$status', '$access_type', '$created_at', '$updated_at', '$description')";
    
    require_once '../connection.php';
 
@@ -195,20 +201,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                   </div>
 
-                </div>
-                <div class="card-footer text-center">
-                  <button type="submit" class="btn btn-primary rounded-0 ps-4 pe-4">Create</button>
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
                 </div>
               </form>
             </div>
-          </div> <!-- card body -->
-        </div> <!-- card -->
-      </div> <!-- col -->
-    </div> <!-- row -->
-    <!-- container -->
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <?php require_once '../footer.php'; ?>
-</body>
+  <?php require_once '../footer.php' ?>
 
-</html>
+  <script>
+    function generateSlug() {
+      var name = document.getElementById("name").value;
+      var slug = name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+      document.getElementById("slug").value = slug;
+    }
+  </script>

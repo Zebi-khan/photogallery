@@ -14,7 +14,7 @@ header .custom-link {
 
 header .custom-btn {
   color: white;
-  background-color: tomato;
+  background-color: #6D9A87;
 }
 
 header .custom-nav a:hover {
@@ -94,13 +94,15 @@ header .custom-nav a:hover {
 
 /* Filter */
 .filter .active {
-  background-color: yellowgreen;
+  background-color: #6D9A87;
 }
+
 .filter a:hover {
-  background-color: yellowgreen;
+  background-color: #6D9A87;
   width: auto;
   padding: 5px 15px;
 }
+
 .filter .custom-button a {
   margin-right: 5px;
   border-radius: 20px;
@@ -109,18 +111,99 @@ header .custom-nav a:hover {
   transition: background-color 0.3s ease;
   display: inline-block;
 }
+
+.filter .row {
+  grid-row-gap: 30px;
+}
+
 .equal-height {
   height: 150px;
   object-fit: cover;
   width: 700px;
 }
+
 .gallery .equal-height {
   height: 270px;
   object-fit: cover;
   width: 700px;
 }
 
+/* About Page */
+
+.about-section {
+  background-color: #f4f4f4;
+  padding: 60px 0;
+}
+
+.about-header {
+  color: #333;
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+/* Contact Page */
+
+.contact {
+  position: relative;
+  background-image: url(/assets/images/contact.png);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  background: rgba(14, 12, 12, 0.5); /* Dark overlay */
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+}
+
+.content h1 {
+  position: relative;
+  right: 210px;
+}
+
+.content p {
+  position: relative;
+  right: 96px;
+}
+
+.contact-btn {
+  position: relative;
+  right: 328px;
+}
+
+.contact-btn .btn {
+  background-color: #6D9A87;
+  color: white;
+}
+
+/* info */
+.info {
+  background-color: #f4f4f4;
+}
+
+.info .msg .btn {
+  background-color: #6D9A87;
+  color: white;
+}
+
+
 /* Footer */
 .custom-footer {
-  background-color: lightgray;
+  background-color: #f4f4f4;
 }

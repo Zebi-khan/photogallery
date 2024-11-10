@@ -25,7 +25,7 @@ if (!$result) {
         <?php while ($image = mysqli_fetch_assoc($result)): ?>
           <div class="col-12 col-sm-6 col-md-4 mb-4" id="image-<?= $image['id']; ?>">
             <div class="card rounded-0 d-flex flex-column">
-              <img src="../../uploaded_images/<?= htmlspecialchars($image['image']); ?>" alt="<?= htmlspecialchars($image['image']); ?>" class="img-fluid" style="max-height: 200px; object-fit: center;">
+              <img src="../../uploads/<?= htmlspecialchars($image['image']); ?>" alt="<?= htmlspecialchars($image['image']); ?>" class="img-fluid" style="max-height: 200px; object-fit: center;">
               <div class="card-body text-center">
                 <h6 class="card-subtitle mb-2 text-muted">
                   <?= date('Y-m-d', strtotime($image['created_at'])); ?>

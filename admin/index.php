@@ -220,7 +220,7 @@ mysqli_close($conn);
               echo "<th scope='row'>" . $row['id'] . "</th>";
               echo "<td>" . $userName . "</td>";
               echo "<td>" . $albumName . "</td>";
-              echo "<td><img src='../uploaded_images/" . htmlspecialchars($row['image']) . "' width='50' height='50'></td>";
+              echo "<td><img src='../uploads/" . htmlspecialchars($row['image']) . "' width='50' height='50'></td>";
               echo "<td class='status-col'>
               <div class='form-check form-switch'>
                 <input class='form-check-input status-switch' type='checkbox' role='switch' data-id='" . $row['id'] . "' $checked>
@@ -229,7 +229,7 @@ mysqli_close($conn);
             </td>";
               echo "<td class='image-attributes'>" . htmlspecialchars($row['access_type']) . "</td>";
               echo "<td>
-                  <a href='../uploaded_images/" . htmlspecialchars($row['image']) . "' class='btn btn-success btn-sm fancybox' data-fancybox='gallery' data-caption='" . htmlspecialchars($row['album_name']) . "'>View</a>
+                  <a href='../uploads/" . htmlspecialchars($row['image']) . "' class='btn btn-success btn-sm fancybox' data-fancybox='gallery' data-caption='" . htmlspecialchars($row['album_name']) . "'>View</a>
                   <a href='image/edit_image.php?id=" . $row['id'] . "' class='btn btn-primary btn-sm'>Edit</a>
                   <button class='btn btn-danger btn-sm delete-btn' data-id='" . $row['id'] . "'>Delete</button>
                 </td>";

@@ -21,10 +21,9 @@ if ($conn === false) {
   die("Error: Could not connect" . mysqli_connect_error());
 }
 
-$user_id = $_SESSION['user_id']; // Retrieve the user ID from the session
+$user_id = $_SESSION['user_id'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  // Retrieve form data
   $submitted_values = [
     'album_id' => $_POST['album_id'] ?? '',
     'status' => $_POST['status'] ?? '',
@@ -43,46 +42,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       if ($file_error === UPLOAD_ERR_OK) {
         $file_tmp = $_FILES['image']['tmp_name'][$i];
-        $file_name = basename($_FILES['image']['name'][$i]);
-        $upload_dir = '../uploaded_images/';
-        $upload_file = $upload_dir . $file_name;
+        $original_file_name = $_FILES['image']['name'][$i];
+        $file_extension = pathinfo($original_file_name, PATHINFO_EXTENSION);
+
+        // Generate a unique filename
+        $unique_file_name = pathinfo($original_file_name, PATHINFO_FILENAME) . '_' . time() . '_' . uniqid() . '.' . $file_extension;
+        $upload_dir = '../uploads/';
+        $upload_file = $upload_dir . $unique_file_name;
 
         // Check file size
         $file_size = $_FILES['image']['size'][$i];
         $max_file_size = 20 * 1024 * 1024; // 20 MB
         if ($file_size > $max_file_size) {
-          $errors[] = "File size of '$file_name' exceeds the maximum limit of 20 MB.";
+          $errors[] = "File size of '$original_file_name' exceeds the maximum limit of 20 MB.";
         } else {
           if (move_uploaded_file($file_tmp, $upload_file)) {
-            // Escape the file name to store in the database
-            $image = mysqli_real_escape_string($conn, $file_name);
+            // Escape the file names for database storage
+            $escaped_original_name = mysqli_real_escape_string($conn, $original_file_name);
+            $escaped_unique_name = mysqli_real_escape_string($conn, $unique_file_name);
 
             // Insert each image into the database
             $created_at = date('Y-m-d H:i:s');
             $updated_at = $created_at;
 
-            $sql = "INSERT INTO images (album_id, user_id, image, status, access_type, created_at, updated_at) 
-                    VALUES ('$album_id', '$user_id', '$image', '$status', '$access_type', '$created_at', '$updated_at')";
+            $sql = "INSERT INTO images (album_id, user_id, original_image, image, status, access_type, created_at, updated_at) 
+                    VALUES ('$album_id', '$user_id', '$escaped_original_name', '$escaped_unique_name', '$status', '$access_type', '$created_at', '$updated_at')";
             
             require_once '../connection.php';
-            
+
             if (!mysqli_query($conn, $sql)) {
               $errors[] = "Error inserting image into database: " . mysqli_error($conn);
             }
-
           } else {
-            $errors[] = "Failed to upload '$file_name'.";
+            $errors[] = "Failed to upload '$original_file_name'.";
           }
         }
       } else {
-        $errors[] = "File upload error code: " . $file_error . " for file '$file_name'.";
+        $errors[] = "File upload error code: " . $file_error . " for file '$original_file_name'.";
       }
     }
   } else {
     $errors[] = "No image uploaded.";
   }
 
-  // Validation
   if (empty($album_id)) {
     $errors[] = "Album selection is required.";
   }
@@ -95,7 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errors[] = "Access Type is required.";
   }
 
-  // Handle errors
   if (!empty($errors)) {
     $error_message = '<ul class="list-unstyled">';
     foreach ($errors as $error) {
@@ -107,15 +108,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 }
 
-// Retrieve albums created by the logged-in user
 $album_sql = "SELECT id, name FROM albums WHERE user_id = '$user_id'";
-
 require_once '../connection.php';
-
 $album_result = mysqli_query($conn, $album_sql);
 
 mysqli_close($conn);
-
 ?>
 
 <body>
@@ -183,7 +180,5 @@ mysqli_close($conn);
       </div> <!-- container -->
     </div>
   </div>
-  <?php require_once '../footer.php'; ?>
-</body>
 
-</html>
+<?php require_once '../footer.php';?>
