@@ -1,4 +1,7 @@
 <?php
+
+ob_start();
+
 require_once 'config.php'; // Include the configuration file
 
 // Define a list of non-admin pages where admins should be redirected to the admin dashboard
@@ -9,9 +12,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 // Check if the current page is a non-admin page and if the user is an admin
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] && in_array($current_page, $non_admin_pages)) {
-    // Redirect admins away from non-admin pages to the admin dashboard
-    header("Location: /admin/index.php");
-    exit();
+  // Redirect admins away from non-admin pages to the admin dashboard
+  header("Location: /admin/index.php");
+  exit();
 }
 
 // Ensure user session is active and admin session is inactive
@@ -68,21 +71,27 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'user') {
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav custom-nav">
+                  <?php
+                  // Get the current file name (e.g., "about.php")
+                  $current_page = basename($_SERVER['PHP_SELF']);
+                  ?>
+
                   <li class="nav-item">
-                    <a class="nav-link custom-link me-4" href="/">Home</a>
+                    <a class="nav-link me-4 <?php echo $current_page == 'index.php' ? 'active' : ''; ?>" href="/">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="/about.php">About</a>
+                    <a class="nav-link me-4 <?php echo $current_page == 'about.php' ? 'active' : ''; ?>" href="/about.php">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="/albums.php">Albums</a>
+                    <a class="nav-link me-4 <?php echo $current_page == 'albums.php' ? 'active' : ''; ?>" href="/albums.php">Albums</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-4" href="/gallery.php">Gallery</a>
+                    <a class="nav-link me-4 <?php echo $current_page == 'gallery.php' ? 'active' : ''; ?>" href="/gallery.php">Gallery</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link me-5" href="/contact.php">Contact Us</a>
+                    <a class="nav-link me-5 <?php echo $current_page == 'contact.php' ? 'active' : ''; ?>" href="/contact.php">Contact Us</a>
                   </li>
+
 
                   <?php if (isset($_SESSION['user_id'])): ?>
                     <li class="nav-item dropdown">
@@ -93,7 +102,7 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'user') {
                       <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                         <li><a class="dropdown-item" href="/user/albums.php">My Albums</a></li>
                         <li><a class="dropdown-item" href="/user/gallery.php">My Galleries</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="/user/settings.php">Settings</a></li>
                         <li><a class="dropdown-item" href="/logout.php">Logout</a></li>
                       </ul>
                     </li>

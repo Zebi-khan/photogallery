@@ -3,8 +3,8 @@
 <!-- About Section -->
 <div class="about-section text-center py-5">
   <div class="container">
-    <h1 class="about-header mt-5 display-4">About PhotoGallery</h1>
-    <p class="lead mt-3 text-muted">
+    <h1 class="about-header mt-5 display-4 text-white"><b>About PhotoGallery</b></h1>
+    <p class="lead mt-3 text-white">
       Welcome to PhotoGallery, a space dedicated to capturing, sharing, and preserving your most cherished memories. Whether you're a professional photographer or a hobbyist, our platform offers you a secure and beautiful way to showcase your albums and images.
     </p>
   </div>

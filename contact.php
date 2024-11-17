@@ -1,13 +1,10 @@
 <?php require_once 'header.php' ?>
 
 <!-- Contact Us -->
-<div class="contact">
+<div class="banner">
   <div class="content">
-    <h1>Contact Information</h1>
-    <p class="text-start mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quo voluptatibus <br> nesciunt consequatur libero modi deserunt id cum assumenda rerum.</p>
-    <div class="contact-btn mt-5">
-      <a href="#" class="btn custom-btn rounded-0 pe-4 ps-4">Contact Us</a>
-    </div>
+    <h1 class="text-start">Contact Information</h1>
+    <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam quo voluptatibus <br> nesciunt consequatur libero modi deserunt id cum assumenda rerum.</p>
   </div>
 </div>
 
@@ -61,8 +58,6 @@
         <div class="card border-0 rounded-0 bg-white">
           <div class="card-body">
             <h5><b>Send Message</b></h5>
-            <p>There are alteration in some many variations of passages of lorem ipsum availle suffer alteration
-              in some form by injected.</p>
             <form method="post" action="">
               <div class="row">
                 <div class="col-6">
@@ -89,9 +84,9 @@
                 </div>
               </div>
               <div class="mb-3">
-                <textarea class="form-control" id="message" name="message" placeholder="Message" rows="4" required></textarea>
+                <textarea class="form-control" id="message" name="message" placeholder="Message" rows="3" required></textarea>
               </div>
-              <div class="msg">
+              <div class="msg mb-2">
                 <a href="#" class="btn btn-light custom-btn rounded-0 pe-3 ps-3 py-2">Send Message</a>
               </div>
             </form>
@@ -105,12 +100,12 @@
 <!-- Location -->
 
 <div class="location py-5">
-  <div class="container">
+  <div class="container-fluid">
     <h2 class="text-center">Find Us on Google Maps</h2>
     <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Quae quo aliquid accusamus molestias vero tempore <br> soluta magni, eum dignissimos porro?</p>
     <div class="d-flex justify-content-center">
-      <img src="/assets/images/googlemap.png" alt="location" height="400" width="800">
+      <img src="/assets/images/googlemap.png" alt="location" height="400" width="1300">
     </div>
   </div>
 </div>

@@ -26,12 +26,10 @@ mysqli_close($conn);
               <img src="/uploads/<?= htmlspecialchars($album['thumbnail']); ?>" alt="<?= htmlspecialchars($album['name']); ?>" class="img-fluid" style="max-height: 200px; object-fit: center;">
               <div class="card-body text-center">
                 <h5 class="card-title"><?= htmlspecialchars($album['name']); ?></h5>
-                <h6 class="card-subtitle mb-2 text-muted">
-                  <?= date('Y-m-d', strtotime($album['created_at'])); ?>
-                </h6>
+                <h6 class="card-subtitle mb-2 text-muted"><?= date('Y-m-d', strtotime($album['created_at'])); ?></h6>
               </div>
               <div class="card-footer border-0 text-center">
-                <a href="/view_album.php?id=<?= $album['id']; ?>" class="me-2">View</a>
+                <a href="/album.php?id=<?= $album['id']; ?>" class="me-2">View</a>
                 <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $album['user_id']): ?>
                   <a href="./user/album/edit_album.php?id=<?= $album['id']; ?>" class="me-2">Edit</a>
                   <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?= $album['id']; ?>" data-name="<?= htmlspecialchars($album['name']); ?>">Delete</a>
@@ -84,13 +82,19 @@ mysqli_close($conn);
       xhr.open('POST', 'delete_album.php', true);
       xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       xhr.onload = function() {
-        if (this.status == 200) {
+        if (this.status === 200) {
+          // Successfully deleted the album
           document.getElementById('album-' + deleteAlbumId).remove(); // Remove album from the page
           var deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteModal'));
           deleteModal.hide();
         } else {
+          // Log the response to the console for debugging
+          console.log("Error response:", this.responseText);
           alert('An error occurred while deleting the album.');
         }
+      };
+      xhr.onerror = function() {
+        alert('Request failed. Please try again.');
       };
       xhr.send('id=' + deleteAlbumId);
     });

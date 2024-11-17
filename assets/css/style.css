@@ -8,8 +8,8 @@ header {
   box-shadow: 0 3px 10px 0 rgb(0 0 0 / 50%);
 }
 
-header .custom-link {
-  color: blue;
+header .nav-link.active {
+  color: blue !important;
 }
 
 header .custom-btn {
@@ -129,10 +129,27 @@ header .custom-nav a:hover {
 }
 
 /* About Page */
-
 .about-section {
-  background-color: #f4f4f4;
+  position: relative; /* Required for the overlay */
+  background-image: url(/assets/images/background-image.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 60px 0;
+  color: white; /* Ensures text is visible on the dark background */
+  z-index: 1; /* Ensures content stays above the overlay */
+}
+
+/* Overlay */
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity (0.5) for the darkness level */
+  z-index: -1; /* Ensures the overlay stays behind the content */
 }
 
 .about-header {
@@ -146,51 +163,40 @@ header .custom-nav a:hover {
 
 /* Contact Page */
 
-.contact {
+.banner {
   position: relative;
-  background-image: url(/assets/images/contact.png);
+  background-image: url('/assets/images/contact.png'); /* Replace with your image path */
   background-size: cover;
   background-position: center;
-  width: 100%;
-  height: 500px;
+  height: 400px; /* Adjust height as needed */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.contact::before {
-  content: "";
+.banner::before {
+  content: '';
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(14, 12, 12, 0.5); /* Dark overlay */
+  z-index: 1;
 }
 
 .content {
   position: relative;
-  z-index: 2;
+  right: 290px;
+  z-index: 2; /* Ensures content stays above the overlay */
   color: white;
   text-align: center;
 }
 
-.content h1 {
-  position: relative;
-  right: 210px;
-}
-
 .content p {
-  position: relative;
-  right: 96px;
+  text-align: left;
 }
 
-.contact-btn {
-  position: relative;
-  right: 328px;
-}
-
-.contact-btn .btn {
-  background-color: #6D9A87;
-  color: white;
-}
 
 /* info */
 .info {

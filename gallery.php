@@ -32,9 +32,9 @@ if (!$result) {
                 </h6>
               </div>
               <div class="card-footer border-0 text-center">
-                <a href="view_image.php?id=<?= $image['id']; ?>" class="me-2">View</a>
+                <a href="/image.php?id=<?= $image['id']; ?>" class="me-2">View</a>
                 <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $image['user_id']): ?>
-                  <a href="./user/image/edit_image.php?= $image['id']; ?>" class="me-2">Edit</a>
+                  <a href="./user/image/edit_image.php?id=<?= $image['id']; ?>" class="me-2">Edit</a>
                   <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?= $image['id']; ?>" data-name="<?= htmlspecialchars($image['image']); ?>">Delete</a>
                 <?php endif; ?>
               </div>

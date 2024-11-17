@@ -75,8 +75,8 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
                       <b class="ms-2">Admin</b>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                      <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-                      <li><a class="dropdown-item" href="#">Settings</a></li>
+                      <li><a class="dropdown-item" href="update_profile.php">Edit Profile</a></li>
+                      <li><a class="dropdown-item" href="settings.php">Settings</a></li>
                       <li><a class="dropdown-item" href="<?php echo LOGOUT_PAGE; ?>">Logout</a></li>
                     </ul>
                   </li>

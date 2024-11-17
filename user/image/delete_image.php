@@ -1,5 +1,6 @@
 <?php
 require_once '/wamp64/www/photogallery/config.php';
+require_once '../../connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $image_id = $_POST['id'];

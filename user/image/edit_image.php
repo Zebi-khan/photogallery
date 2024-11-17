@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
               </div>
               <div class="col-6">
-                <p>Current Image: <img src="../../uploaded_images/<?= htmlspecialchars($image['image']); ?>" class="img-fluid" style="max-width: 100px; margin-top:20px"></p>
+                <p>Current Image: <img src="../../uploads/<?= htmlspecialchars($image['image']); ?>" class="img-fluid" style="max-width: 100px; margin-top:20px"></p>
               </div>
             </div>
             <div class="card-footer text-center">

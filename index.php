@@ -130,40 +130,40 @@
           <img src="assets/images/b1.png" alt="Bird image" class="img-fluid equal-height">
         </div>
         <div class="col-lg-2" data-category="beauty">
-          <img src="assets/images/A2.png" alt="Beauty image" class="img-fluid equal-height">
-        </div>
-        <div class="col-lg-2" data-category="birds">
-          <img src="assets/images/b6.png" alt="Bird image" class="img-fluid equal-height">
+          <img src="assets/images/b4.png" alt="Beauty image" class="img-fluid equal-height">
         </div>
         <div class="col-lg-2" data-category="birds">
           <img src="assets/images/b2.png" alt="Bird image" class="img-fluid equal-height">
-        </div>
-        <div class="col-lg-2" data-category="beauty">
-          <img src="assets/images/b4.png" alt="Beauty image" class="img-fluid equal-height">
-        </div>
-        <div class="col-lg-2" data-category="natural">
-          <img src="assets/images/Natural3.png" alt="Natural image" class="img-fluid equal-height">
-        </div>
-      </div>
-
-      <div class="row d-flex mt-5">
-        <div class="col-lg-2" data-category="beauty">
-          <img src="assets/images/b5.png" alt="Beauty image" class="img-fluid equal-height">
         </div>
         <div class="col-lg-2" data-category="birds">
           <img src="assets/images/b3.png" alt="Bird image" class="img-fluid equal-height">
         </div>
         <div class="col-lg-2" data-category="beauty">
-          <img src="assets/images/A5.png" alt="Beauty image" class="img-fluid equal-height">
+          <img src="assets/images/b5.png" alt="Beauty image" class="img-fluid equal-height">
         </div>
         <div class="col-lg-2" data-category="natural">
-          <img src="assets/images/Natural5.png" alt="Natural image" class="img-fluid equal-height">
+          <img src="assets/images/A2.png" alt="Natural image" class="img-fluid equal-height">
+        </div>
+      </div>
+
+      <div class="row d-flex mt-5">
+        <div class="col-lg-2" data-category="beauty">
+          <img src="assets/images/Aliyan.png" alt="Beauty image" class="img-fluid equal-height">
+        </div>
+        <div class="col-lg-2" data-category="birds">
+          <img src="assets/images/Natural5.png" alt="Bird image" class="img-fluid equal-height">
         </div>
         <div class="col-lg-2" data-category="beauty">
-          <img src="assets/images/A9.png" alt="Beauty image" class="img-fluid equal-height">
+          <img src="assets/images/Natural6.png" alt="Beauty image" class="img-fluid equal-height">
+        </div>
+        <div class="col-lg-2" data-category="natural">
+          <img src="assets/images/A3.png" alt="Natural image" class="img-fluid equal-height">
         </div>
         <div class="col-lg-2" data-category="beauty">
           <img src="assets/images/A6.png" alt="Beauty image" class="img-fluid equal-height">
+        </div>
+        <div class="col-lg-2" data-category="beauty">
+          <img src="assets/images/Natural3.png" alt="Beauty image" class="img-fluid equal-height">
         </div>
       </div>
     </div>
