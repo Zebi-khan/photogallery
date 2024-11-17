@@ -47,8 +47,8 @@
         echo '<td>' . htmlspecialchars($row['date_of_birth']) . '</td>';
         echo '<td>' . htmlspecialchars($row['gender']) . '</td>';
         echo '<td>';
-        echo '<a href="#" class="text-decoration-none pe-3">View</a>';
-        echo '<a href="#" class="text-decoration-none pe-3">Edit</a>';
+        echo '<a href="view_user.php?id=' . $row['id'] . '" class="text-decoration-none pe-3">View</a>';
+        echo '<a href="edit_user.php?id=' . $row['id'] . '" class="text-decoration-none pe-3">Edit</a>';
         echo '<a href="#" class="text-decoration-none delete-btn" data-id="' . $row['id'] . '">Delete</a>';
         echo '</td>';
         echo '</tr>';

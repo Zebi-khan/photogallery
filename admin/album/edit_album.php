@@ -1,5 +1,5 @@
 <?php
-require_once '../../header.php';
+require_once '../header.php';
 
 // Fetch the album details based on the album ID
 if (isset($_GET['id'])) {
@@ -61,61 +61,65 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 mysqli_close($conn);
 ?>
 
-<div class="edit py-5">
-  <div class="container d-flex justify-content-center">
-    <div class="form-container">
-      <div class="card">
-        <div class="card-body m-0 p-0">
-          <div class="card-header text-center">
-            <h2 class="card-title">Edit Album</h2>
+<?php require_once '../sidebar.php' ?>
+
+<div class="col-lg-10">
+  <div class="edit py-5">
+    <div class="container d-flex justify-content-center">
+      <div class="form-container">
+        <div class="card">
+          <div class="card-body m-0 p-0">
+            <div class="card-header text-center">
+              <h2 class="card-title">Edit Album</h2>
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+              <div class="row p-2">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Album Name</label>
+                    <input type="text" class="form-control" id="name" name="name" value="<?= htmlspecialchars($album['name']); ?>" required>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="slug" class="form-label">Slug</label>
+                    <input type="text" class="form-control" id="slug" name="slug" value="<?= htmlspecialchars($album['slug']); ?>" required>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="created_at" class="form-label">Created At</label>
+                    <input type="date" class="form-control" id="created_at" name="created_at" value="<?= htmlspecialchars($album['created_at']); ?>" required>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="access_type" class="form-label">Access Type</label>
+                    <select class="form-select" id="access_type" name="access_type" required>
+                      <option value="public" <?= $album['access_type'] == 'public' ? 'selected' : ''; ?>>Public</option>
+                      <option value="private" <?= $album['access_type'] == 'private' ? 'selected' : ''; ?>>Private</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" name="description" required><?= htmlspecialchars($album['description']); ?></textarea>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="thumbnail" class="form-label">Thumbnail</label>
+                    <input type="file" class="form-control" id="thumbnail" name="thumbnail">
+                    <p>Current Image: <img src="../../uploads/<?= htmlspecialchars($album['thumbnail']); ?>" alt="<?= htmlspecialchars($album['name']); ?>" class="img-fluid" style="max-width: 100px; margin-top: 10px"></p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer text-center">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+              </div>
+            </form>
           </div>
-          <form method="POST" enctype="multipart/form-data">
-            <div class="row p-2">
-              <div class="col-6">
-                <div class="mb-3">
-                  <label for="name" class="form-label">Album Name</label>
-                  <input type="text" class="form-control" id="name" name="name" value="<?= htmlspecialchars($album['name']); ?>" required>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="mb-3">
-                  <label for="slug" class="form-label">Slug</label>
-                  <input type="text" class="form-control" id="slug" name="slug" value="<?= htmlspecialchars($album['slug']); ?>" required>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="mb-3">
-                  <label for="created_at" class="form-label">Created At</label>
-                  <input type="date" class="form-control" id="created_at" name="created_at" value="<?= htmlspecialchars($album['created_at']); ?>" required>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="mb-3">
-                  <label for="access_type" class="form-label">Access Type</label>
-                  <select class="form-select" id="access_type" name="access_type" required>
-                    <option value="public" <?= $album['access_type'] == 'public' ? 'selected' : ''; ?>>Public</option>
-                    <option value="private" <?= $album['access_type'] == 'private' ? 'selected' : ''; ?>>Private</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="mb-3">
-                  <label for="description" class="form-label">Description</label>
-                  <textarea class="form-control" id="description" name="description" required><?= htmlspecialchars($album['description']); ?></textarea>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="mb-3">
-                  <label for="thumbnail" class="form-label">Thumbnail</label>
-                  <input type="file" class="form-control" id="thumbnail" name="thumbnail">
-                  <p>Current Image: <img src="../../uploads/<?= htmlspecialchars($album['thumbnail']); ?>" alt="<?= htmlspecialchars($album['name']); ?>" class="img-fluid" style="max-width: 100px; margin-top: 10px"></p>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer text-center">
-              <button type="submit" class="btn btn-primary">Save Changes</button>
-            </div>
-          </form>
         </div>
       </div>
     </div>

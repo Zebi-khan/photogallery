@@ -3,7 +3,7 @@
 ob_start();
 
 require_once '../../config.php';
-require_once '../../header.php';
+require_once '../header.php';
 
 // Fetch the image details based on the image ID
 if (isset($_GET['id'])) {
@@ -67,39 +67,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 ?>
 
-<div class="edit py-5">
-  <div class="container">
-    <div class="form-container">
-      <div class="card">
-        <div class="card-body p-0">
-          <div class="card-header">
-            <h2 class="text-center">Edit Image</h2>
+<?php require_once '../sidebar.php' ?>
+
+<div class="col-lg-10">
+  <div class="edit py-5">
+    <div class="container">
+      <div class="form-container">
+        <div class="card">
+          <div class="card-body p-0">
+            <div class="card-header">
+              <h2 class="text-center">Edit Image</h2>
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+              <div class="row p-2">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="access_type" class="form-label">Access Type</label>
+                    <select class="form-select" id="access_type" name="access_type" required>
+                      <option value="public" <?= $image['access_type'] == 'public' ? 'selected' : ''; ?>>Public</option>
+                      <option value="private" <?= $image['access_type'] == 'private' ? 'selected' : ''; ?>>Private</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" class="form-control" id="image" name="image">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <p>Current Image: <img src="../../uploads/<?= htmlspecialchars($image['image']); ?>" class="img-fluid" style="max-width: 100px; margin-top:20px"></p>
+                </div>
+              </div>
+              <div class="card-footer text-center">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+              </div>
+            </form>
           </div>
-          <form method="POST" enctype="multipart/form-data">
-            <div class="row p-2">
-              <div class="col-6">
-                <div class="mb-3">
-                  <label for="access_type" class="form-label">Access Type</label>
-                  <select class="form-select" id="access_type" name="access_type" required>
-                    <option value="public" <?= $image['access_type'] == 'public' ? 'selected' : ''; ?>>Public</option>
-                    <option value="private" <?= $image['access_type'] == 'private' ? 'selected' : ''; ?>>Private</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="mb-3">
-                  <label for="image" class="form-label">Image</label>
-                  <input type="file" class="form-control" id="image" name="image">
-                </div>
-              </div>
-              <div class="col-6">
-                <p>Current Image: <img src="../../uploads/<?= htmlspecialchars($image['image']); ?>" class="img-fluid" style="max-width: 100px; margin-top:20px"></p>
-              </div>
-            </div>
-            <div class="card-footer text-center">
-              <button type="submit" class="btn btn-primary">Save Changes</button>
-            </div>
-          </form>
         </div>
       </div>
     </div>
